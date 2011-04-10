@@ -33,8 +33,25 @@ namespace iTunesLibrary.Domain.Tests
 		[TestCase]
 		public void Posso_Pesquisar_Musicas_Na_Biblioteca()
 		{
+			var usuario = new Usuario
+			{
+				Nome = "hvitorino",
+				Biblioteca = new Biblioteca
+				{
+					Musicas = new List<Musica> 
+					{
+						new Musica
+						{
+							Nome = "Fire",
+							Artista = "Jimi Hendrix"
+						} 
+					}
+				}
+			};
+
 			var musica = usuario.pesquisaMusica( "Fire" );
 
+			Assert.IsNotNull( musica );
 			Assert.AreEqual( "Fire", musica.Nome );
 			Assert.AreEqual( "Jimi Hendrix", musica.Artista );
 		}
@@ -42,7 +59,10 @@ namespace iTunesLibrary.Domain.Tests
 		[TestCase]
 		public void Posso_Criar_Listas_De_Musicas()
 		{
+			var lista = usuario.NovaLista( "classic rock" );
 
+			Assert.AreEqual( "classic rock", lista.Nome );
+			Assert.AreEqual( usuario.Biblioteca, lista.Biblioteca );
 		}
 	}
 }

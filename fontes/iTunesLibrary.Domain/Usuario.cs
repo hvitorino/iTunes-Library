@@ -32,9 +32,20 @@ namespace iTunesLibrary.Domain
 
 		public Musica pesquisaMusica( string nome )
 		{
-			return Biblioteca.Musicas
-						.Where( musica => musica.Nome.Equals( nome ) )
-						.SingleOrDefault();
+			if ( Biblioteca != null )
+				return Biblioteca.Musicas
+							.Where( musica => musica.Nome.Equals( nome ) )
+							.SingleOrDefault();
+			else
+				return null;
+		}
+
+		public Lista NovaLista( string nome )
+		{
+			if ( this.Biblioteca == null )
+				this.Biblioteca = new Biblioteca { Nome = this.Nome };
+
+			return new Lista() { Nome = nome, Biblioteca = this.Biblioteca };
 		}
 	}
 }
