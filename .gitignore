@@ -2,3 +2,6 @@
 /fontes/iTunesLibrary/bin
 /fontes/iTunesLibrary.Domain.Tests/bin
 /fontes/iTunesLibrary.Domain/bin
+/fontes/iTunesLibrary/obj
+/fontes/iTunesLibrary.Domain/obj
+/fontes/iTunesLibrary.Domain.Tests/obj
