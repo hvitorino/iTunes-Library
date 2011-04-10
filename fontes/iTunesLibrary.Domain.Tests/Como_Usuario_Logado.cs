@@ -7,31 +7,33 @@ using NUnit.Framework;
 
 namespace iTunesLibrary.Domain.Tests
 {
-	[TestCase]
+	[TestFixture]
 	public class Como_Usuario_Logado
 	{
-		[TestCase]
-		public void Posso_Criar_Uma_Nova_Biblioteca()
-		{
+		private Usuario usuario;
 
+		[SetUp]
+		public void Premissas()
+		{
+			usuario = Usuario.novoUsuario( Guid.NewGuid() );
 		}
 
 		[TestCase]
 		public void Posso_Adicionar_Musicas_A_Biblioteca()
 		{
+			var musica = usuario.adicionaMusica()
+							.ComNome( "Fire" )
+							.DoArtista( "Jimi Hendrix" );
 
-		}
-
-		[TestCase]
-		public void Posso_Visualizar_A_Biblioteca()
-		{ 
-		
+			Assert.AreEqual( musica, usuario.UltimaMusicaAdicionada );
+			Assert.AreEqual( "Fire", usuario.UltimaMusicaAdicionada.Nome );
+			Assert.AreEqual( "Jimi Hendrix", usuario.UltimaMusicaAdicionada.Artista );
 		}
 
 		[TestCase]
 		public void Posso_Pesquisar_Musicas_Na_Biblioteca()
-		{ 
-		
+		{
+
 		}
 
 		[TestCase]
