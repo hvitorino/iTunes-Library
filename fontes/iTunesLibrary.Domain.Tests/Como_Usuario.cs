@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace iTunesLibrary.Domain.Tests
 {
 	[TestFixture]
-	public class Como_Usuario_Logado
+	public class Como_Usuario
 	{
 		private Usuario usuario;
 
@@ -33,7 +33,10 @@ namespace iTunesLibrary.Domain.Tests
 		[TestCase]
 		public void Posso_Pesquisar_Musicas_Na_Biblioteca()
 		{
+			var musica = usuario.pesquisaMusica( "Fire" );
 
+			Assert.AreEqual( "Fire", musica.Nome );
+			Assert.AreEqual( "Jimi Hendrix", musica.Artista );
 		}
 
 		[TestCase]

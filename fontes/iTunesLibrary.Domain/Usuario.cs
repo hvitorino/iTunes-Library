@@ -30,6 +30,11 @@ namespace iTunesLibrary.Domain
 			return musica;
 		}
 
-
+		public Musica pesquisaMusica( string nome )
+		{
+			return Biblioteca.Musicas
+						.Where( musica => musica.Nome.Equals( nome ) )
+						.SingleOrDefault();
+		}
 	}
 }
