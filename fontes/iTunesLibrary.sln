@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary", "iTunesLibrary\iTunesLibrary.csproj", "{362799A2-56FC-4B5F-8F4F-2B252A72BF78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary.Domain", "iTunesLibrary.Domain\iTunesLibrary.Domain.csproj", "{BE8334EE-70E9-486C-8299-C6E4D4A6309A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary.Domain.Tests", "iTunesLibrary.Domain.Tests\iTunesLibrary.Domain.Tests.csproj", "{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{362799A2-56FC-4B5F-8F4F-2B252A72BF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362799A2-56FC-4B5F-8F4F-2B252A72BF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362799A2-56FC-4B5F-8F4F-2B252A72BF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362799A2-56FC-4B5F-8F4F-2B252A72BF78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8334EE-70E9-486C-8299-C6E4D4A6309A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8334EE-70E9-486C-8299-C6E4D4A6309A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8334EE-70E9-486C-8299-C6E4D4A6309A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8334EE-70E9-486C-8299-C6E4D4A6309A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
