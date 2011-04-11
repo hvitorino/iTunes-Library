@@ -57,9 +57,34 @@ namespace iTunesLibrary.Domain.Tests
 		}
 
 		[TestCase]
+		public void Posso_Listar_Musicas_Da_Biblioteca()
+		{
+			var usuario = new Usuario
+			{
+				Nome = "hvitorino",
+				Biblioteca = new Biblioteca
+				{
+					Musicas = new List<Musica> 
+					{
+						new Musica
+						{
+							Nome = "Fire",
+							Artista = "Jimi Hendrix"
+						} 
+					}
+				}
+			};
+
+			var musicas = usuario.listaMusicas();
+
+			Assert.IsInstanceOf<IEnumerable<Musica>>( musicas );
+			Assert.AreEqual( 1, musicas.Count() );
+		}
+
+		[TestCase]
 		public void Posso_Criar_Listas_De_Musicas()
 		{
-			var lista = usuario.NovaLista( "classic rock" );
+			var lista = usuario.criaLista( "classic rock" );
 
 			Assert.AreEqual( "classic rock", lista.Nome );
 			Assert.AreEqual( usuario.Biblioteca, lista.Biblioteca );

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace iTunesLibrary.Domain
 {
-	public class Usuario
+	public class Usuario : iTunesLibrary.Domain.IUsuario
 	{
 		public Guid Id { get; set; }
 		public string Nome { get; set; }
@@ -40,12 +40,17 @@ namespace iTunesLibrary.Domain
 				return null;
 		}
 
-		public Lista NovaLista( string nome )
+		public Lista criaLista( string nome )
 		{
 			if ( this.Biblioteca == null )
 				this.Biblioteca = new Biblioteca { Nome = this.Nome };
 
 			return new Lista() { Nome = nome, Biblioteca = this.Biblioteca };
+		}
+
+		public IEnumerable<Musica> listaMusicas()
+		{
+			return Biblioteca.Musicas;
 		}
 	}
 }
