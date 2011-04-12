@@ -2,65 +2,68 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 
+using Restfulie.Server;
 using Restfulie.Server.Results;
 
 using iTunesLibrary.Domain;
 
 namespace iTunesLibrary.Controllers
 {
-    public class UsuarioController : Controller
-    {
-        private IUsuario usuario = new Usuario
+	[ActAsRestfulie]
+	public class UsuarioController : RecursoController<Usuario>
+	{
+		private Usuario usuario = new Usuario
 		{
-			Id         = Guid.NewGuid(),
-			Nome       = "hvitorino",
+			Id = Guid.NewGuid(),
+			Nome = "hvitorino",
 			Biblioteca = new Biblioteca
 			{
-				Musicas = new List<Musica> 
+				Listas = new List<Lista> 
 				{
-					new Musica 
+					new Lista
 					{
-						Nome = "Fire",
-						Artista = "Jimi Hendrix"
-					},
-					new Musica 
-					{
-						Nome = "Hey Joe",
-						Artista = "Jimi Hendrix"
-					},
-					new Musica 
-					{
-						Nome = "All Along The Watchtower",
-						Artista = "Jimi Hendrix"
-					},
-					new Musica 
-					{
-						Nome = "Iron Maiden",
-						Artista = "Iron Maiden"
-					},
-					new Musica 
-					{
-						Nome = "Hallowed Be Thy Name",
-						Artista = "Iron Maiden"
+						Nome = "Classic Rock",
+						Musicas = new List<Musica> 
+						{
+							new Musica 
+							{
+								Nome = "Fire",
+								Artista = "Jimi Hendrix"
+							},
+							new Musica 
+							{
+								Nome = "Hey Joe",
+								Artista = "Jimi Hendrix"
+							},
+							new Musica 
+							{
+								Nome = "All Along The Watchtower",
+								Artista = "Jimi Hendrix"
+							},
+							new Musica 
+							{
+								Nome = "Iron Maiden",
+								Artista = "Iron Maiden"
+							},
+							new Musica 
+							{
+								Nome = "Hallowed Be Thy Name",
+								Artista = "Iron Maiden"
+							}
+						}
 					}
 				}
 			}
 		};
 
 		//
-		// GET: /Usuarios/
+		// GET: /login-usuario/musicas/
 
-		public ActionResult Index()
+		public ActionResult Biblioteca(string idUsuario)
 		{
-			return View();
-		}
+			ViewData[ "Biblioteca" ] = usuario.Biblioteca;
 
-		//
-		// GET: /Usuarios/Codigo/Musicas/
-
-		public ActionResult Musicas(string idUsuario)
-		{
-			return new OK(usuario.listaMusicas());
+			return new OK();
 		}
-    }
+	}
 }

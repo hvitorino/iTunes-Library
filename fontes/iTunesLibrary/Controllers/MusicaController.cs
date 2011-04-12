@@ -13,6 +13,9 @@ namespace iTunesLibrary.Controllers
 	[HandleError]
 	public class MusicaController : Controller
 	{
-		
+		public ActionResult Index()
+		{
+			return View();
+		}
 	}
 }

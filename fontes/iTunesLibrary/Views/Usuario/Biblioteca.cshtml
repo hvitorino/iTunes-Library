@@ -1,0 +1,24 @@
+﻿@using iTunesLibrary.Domain;
+
+@{
+    ViewBag.Title = "Biblioteca";
+}
+
+<h2>Listas</h2>
+
+<ul>
+@foreach (Lista lista in (ViewData[ "Biblioteca" ] as Biblioteca).Listas) 
+{
+    <li>
+    @lista.Nome
+        <br/>
+        <br/>
+        <ul>
+        @foreach (Musica musica in lista.Musicas)
+        { 
+            <li>@musica.Artista - @musica.Nome</li>
+        }
+        </ul>
+    </li>
+}
+</ul>

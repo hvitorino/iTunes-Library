@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using Restfulie.Server.Configuration;
+using Restfulie.Server.MediaTypes;
+
 namespace iTunesLibrary
 {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -12,34 +15,36 @@ namespace iTunesLibrary
 
 	public class MvcApplication : System.Web.HttpApplication
 	{
-		public static void RegisterGlobalFilters( GlobalFilterCollection filters )
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
-			filters.Add( new HandleErrorAttribute() );
+			filters.Add(new HandleErrorAttribute());
 		}
 
-		public static void RegisterRoutes( RouteCollection routes )
+		public static void RegisterRoutes(RouteCollection routes)
 		{
-			routes.IgnoreRoute( "{resource}.axd/{*pathInfo}" );
-
-			//routes.MapRoute(
-			//    "Default", // Route name
-			//    "{controller}/{action}/{id}", // URL with parameters
-			//    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-			//);
+			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
 				"Usuarios", // Route name
-				"{controller}/{idUsuario}/{action}", // URL with parameters
-				new { controller = "Usuario", action = "Musicas", idUsuario = "" } // Parameter defaults
+				"{idUsuario}/{action}", // URL with parameters
+				new { controller = "Usuario", action = "Biblioteca" } // Parameter defaults
 			);
+
+			routes.MapRoute(
+				"Default", // Route name
+				"{controller}/{action}/{id}", // URL with parameters
+				new { controller = "Usuario", action = "Inicio", id = UrlParameter.Optional } // Parameter defaults
+			);
+
+			ConfigurationStore.Get().SetDefaultMediaType<JsonAndHypermedia>();
 		}
 
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
 
-			RegisterGlobalFilters( GlobalFilters.Filters );
-			RegisterRoutes( RouteTable.Routes );
+			RegisterGlobalFilters(GlobalFilters.Filters);
+			RegisterRoutes(RouteTable.Routes);
 		}
 	}
 }

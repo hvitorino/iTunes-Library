@@ -12,7 +12,7 @@ namespace iTunesLibrary.Domain
 		public Biblioteca Biblioteca { get; set; }
 		public Musica UltimaMusicaAdicionada { get; set; }
 
-		public static Usuario novoUsuario( Guid idUsuario )
+		public static Usuario novoUsuario(Guid idUsuario)
 		{
 			return new Usuario { Id = idUsuario };
 		}
@@ -21,31 +21,31 @@ namespace iTunesLibrary.Domain
 		{
 			var musica = new Musica();
 
-			if ( Biblioteca == null )
+			if (Biblioteca == null)
 				Biblioteca = new Domain.Biblioteca { Nome = this.Nome };
 
-			Biblioteca.adicionaMusica( musica );
+			Biblioteca.adicionaMusica(musica);
 			UltimaMusicaAdicionada = musica;
 
 			return musica;
 		}
 
-		public Musica pesquisaMusica( string nome )
+		public Musica pesquisaMusica(string nome)
 		{
-			if ( Biblioteca != null )
+			if (Biblioteca != null)
 				return Biblioteca.Musicas
-							.Where( musica => musica.Nome.Equals( nome ) )
+							.Where(musica => musica.Nome.Equals(nome))
 							.SingleOrDefault();
 			else
 				return null;
 		}
 
-		public Lista criaLista( string nome )
+		public Lista criaLista(string nome)
 		{
-			if ( this.Biblioteca == null )
-				this.Biblioteca = new Biblioteca { Nome = this.Nome };
+			if (Biblioteca == null)
+				Biblioteca = new Biblioteca { Nome = this.Nome };
 
-			return new Lista() { Nome = nome, Biblioteca = this.Biblioteca };
+			return Biblioteca.adicionaLista(nome);
 		}
 
 		public IEnumerable<Musica> listaMusicas()
