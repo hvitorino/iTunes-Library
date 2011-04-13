@@ -4,43 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace iTunesLibrary.Controllers
+using Restfulie.Server.Results;
+
+namespace iTunesLibrary.Web.Controllers
 {
     public abstract class RecursoController<Recurso> : Controller
     {
 		public virtual ActionResult Inicio()
         {
-            return View();
+            return new OK();
         }
 
 		public virtual ActionResult Lista()
 		{
-			return View();
+			return new OK();
 		}
 
 		public virtual ActionResult Exibe()
 		{
-			return View();
+			return new OK();
 		}
 
 		public virtual ActionResult Novo()
 		{
-			return View();
+			return new OK();
 		}
 
 		public virtual ActionResult Cria()
 		{
-			return View();
+			return new Created();
 		}
 
 		public virtual ActionResult Altera()
 		{
-			return View();
+			return new OK();
 		}
 
 		public virtual ActionResult Exclui()
 		{
-			return View();
+			return new OK();
 		}
     }
 }

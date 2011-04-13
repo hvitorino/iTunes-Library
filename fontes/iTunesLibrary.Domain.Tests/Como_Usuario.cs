@@ -38,14 +38,11 @@ namespace iTunesLibrary.Domain.Tests
 				Nome = "hvitorino",
 				Biblioteca = new Biblioteca
 				{
-					Musicas = new List<Musica> 
+					new Musica
 					{
-						new Musica
-						{
-							Nome = "Fire",
-							Artista = "Jimi Hendrix"
-						} 
-					}
+						Nome = "Fire",
+						Artista = "Jimi Hendrix"
+					} 
 				}
 			};
 
@@ -64,14 +61,11 @@ namespace iTunesLibrary.Domain.Tests
 				Nome = "hvitorino",
 				Biblioteca = new Biblioteca
 				{
-					Musicas = new List<Musica> 
+					new Musica
 					{
-						new Musica
-						{
-							Nome = "Fire",
-							Artista = "Jimi Hendrix"
-						} 
-					}
+						Nome = "Fire",
+						Artista = "Jimi Hendrix"
+					} 
 				}
 			};
 
@@ -81,13 +75,13 @@ namespace iTunesLibrary.Domain.Tests
 			Assert.AreEqual( 1, musicas.Count() );
 		}
 
-		[TestCase]
-		public void Posso_Criar_Listas_De_Musicas()
-		{
-			var lista = usuario.criaLista( "classic rock" );
+		//[TestCase]
+		//public void Posso_Criar_Listas_De_Musicas()
+		//{
+		//    var lista = usuario.criaLista( "classic rock" );
 
-			Assert.AreEqual( "classic rock", lista.Nome );
-			Assert.AreEqual( usuario.Biblioteca, lista.Biblioteca );
-		}
+		//    Assert.AreEqual( "classic rock", lista.Nome );
+		//    Assert.AreEqual( usuario.Biblioteca, lista.Biblioteca );
+		//}
 	}
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace iTunesLibrary.Controllers
+namespace iTunesLibrary.Web.Controllers
 {
     public class ListaController : Controller
     {

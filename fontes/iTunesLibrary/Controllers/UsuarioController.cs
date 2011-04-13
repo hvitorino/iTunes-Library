@@ -7,7 +7,7 @@ using Restfulie.Server.Results;
 
 using iTunesLibrary.Domain;
 
-namespace iTunesLibrary.Controllers
+namespace iTunesLibrary.Web.Controllers
 {
 	[ActAsRestfulie]
 	public class UsuarioController : RecursoController<Usuario>
@@ -18,40 +18,30 @@ namespace iTunesLibrary.Controllers
 			Nome = "hvitorino",
 			Biblioteca = new Biblioteca
 			{
-				Listas = new List<Lista> 
+				new Musica 
 				{
-					new Lista
-					{
-						Nome = "Classic Rock",
-						Musicas = new List<Musica> 
-						{
-							new Musica 
-							{
-								Nome = "Fire",
-								Artista = "Jimi Hendrix"
-							},
-							new Musica 
-							{
-								Nome = "Hey Joe",
-								Artista = "Jimi Hendrix"
-							},
-							new Musica 
-							{
-								Nome = "All Along The Watchtower",
-								Artista = "Jimi Hendrix"
-							},
-							new Musica 
-							{
-								Nome = "Iron Maiden",
-								Artista = "Iron Maiden"
-							},
-							new Musica 
-							{
-								Nome = "Hallowed Be Thy Name",
-								Artista = "Iron Maiden"
-							}
-						}
-					}
+					Nome = "Fire",
+					Artista = "Jimi Hendrix"
+				},
+				new Musica 
+				{
+					Nome = "Hey Joe",
+					Artista = "Jimi Hendrix"
+				},
+				new Musica 
+				{
+					Nome = "All Along The Watchtower",
+					Artista = "Jimi Hendrix"
+				},
+				new Musica 
+				{
+					Nome = "Iron Maiden",
+					Artista = "Iron Maiden"
+				},
+				new Musica 
+				{
+					Nome = "Hallowed Be Thy Name",
+					Artista = "Iron Maiden"
 				}
 			}
 		};

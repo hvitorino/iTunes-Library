@@ -2,9 +2,9 @@
 
 using Restfulie.Server;
 
-using iTunesLibrary.Controllers;
+using iTunesLibrary.Web.Controllers;
 
-namespace iTunesLibrary.Models
+namespace iTunesLibrary.Web.Models
 {
 	public class Usuario : IBehaveAsResource
 	{

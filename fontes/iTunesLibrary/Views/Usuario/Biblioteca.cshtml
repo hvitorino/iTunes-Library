@@ -4,21 +4,11 @@
     ViewBag.Title = "Biblioteca";
 }
 
-<h2>Listas</h2>
+<h2>Músicas</h2>
 
 <ul>
-@foreach (Lista lista in (ViewData[ "Biblioteca" ] as Biblioteca).Listas) 
+@foreach (Musica musica in ViewData[ "Biblioteca" ] as Biblioteca) 
 {
-    <li>
-    @lista.Nome
-        <br/>
-        <br/>
-        <ul>
-        @foreach (Musica musica in lista.Musicas)
-        { 
-            <li>@musica.Artista - @musica.Nome</li>
-        }
-        </ul>
-    </li>
+    <li>@musica.Artista - @musica.Nome</li>
 }
 </ul>

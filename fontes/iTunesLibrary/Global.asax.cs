@@ -5,8 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+//using Newtonsoft.Json;
+
 using Restfulie.Server.Configuration;
 using Restfulie.Server.MediaTypes;
+
+using Restfulie.Server.Unmarshalling.Deserializers.Xml;
+using Restfulie.Server.Marshalling.Serializers.XmlAndHypermedia;
+using Restfulie.Server.Unmarshalling.Deserializers.Json;
+using Restfulie.Server.Marshalling.Serializers.Json;
 
 namespace iTunesLibrary
 {
@@ -25,18 +32,10 @@ namespace iTunesLibrary
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
-				"Usuarios", // Route name
-				"{idUsuario}/{action}", // URL with parameters
-				new { controller = "Usuario", action = "Biblioteca" } // Parameter defaults
-			);
-
-			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
-				new { controller = "Usuario", action = "Inicio", id = UrlParameter.Optional } // Parameter defaults
+				new { controller = "Musica", action = "Inicio", id = UrlParameter.Optional } // Parameter defaults
 			);
-
-			ConfigurationStore.Get().SetDefaultMediaType<JsonAndHypermedia>();
 		}
 
 		protected void Application_Start()

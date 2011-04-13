@@ -1,0 +1,17 @@
+﻿@model IList<iTunesLibrary.Domain.Musica>
+           
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{<a href="../Shared/_Layout.cshtml"></a>
+    ViewBag.Title = "Músicas";
+}
+
+<h2>Músicas</h2>
+
+<ul>
+@foreach (var musica in Model) { 
+    <li>@musica.Artista - @musica.Nome</li>
+}
+</ul>

@@ -10,7 +10,7 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTunesLibrary</RootNamespace>
+    <RootNamespace>iTunesLibrary.Web</RootNamespace>
     <AssemblyName>iTunesLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\dependencias\bin\json\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Restfulie.Server">
       <HintPath>..\..\dependencias\bin\restfulie\Restfulie.Server.dll</HintPath>
     </Reference>
@@ -44,6 +47,10 @@
     <Reference Include="System.Web.Routing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comunicacao\ConversorDeDatas.cs" />
+    <Compile Include="Comunicacao\ConversorDeEnumeracoes.cs" />
+    <Compile Include="Comunicacao\ExtjsModelBinder.cs" />
+    <Compile Include="Comunicacao\Resposta.cs" />
     <Compile Include="Controllers\ListaController.cs" />
     <Compile Include="Controllers\MusicaController.cs" />
     <Compile Include="Controllers\RecursoController.cs" />
@@ -102,9 +109,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Musica\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\iTunesLibrary.Domain\iTunesLibrary.Domain.csproj">
       <Project>{BE8334EE-70E9-486C-8299-C6E4D4A6309A}</Project>
@@ -113,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Usuario\Biblioteca.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Musica\Inicio.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
