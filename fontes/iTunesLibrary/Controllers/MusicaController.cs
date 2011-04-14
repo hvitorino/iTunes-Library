@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Linq;
 
 using Restfulie.Server;
 using Restfulie.Server.Results;
@@ -50,7 +51,29 @@ namespace iTunesLibrary.Web.Controllers
 		[HttpGet]
 		public override ActionResult Inicio()
 		{
-			return new OK(musicas);
+			var musicasDTO = new List<Models.Musica>();
+
+			musicas.ForEach(
+				musica =>
+					musicasDTO.Add(
+						new Models.Musica 
+						{ 
+							Id = musica.Id,
+							Artista = musica.Artista,
+							Nome = musica.Nome
+						}
+					)
+			);
+
+			return new OK(musicasDTO);
+		}
+
+		[HttpPost]
+		public override ActionResult Novo()
+		{
+
+
+			return new OK();
 		}
 	}
 }

@@ -32,9 +32,41 @@ namespace iTunesLibrary
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
-				"Default", // Route name
-				"{controller}/{action}/{id}", // URL with parameters
-				new { controller = "Musica", action = "Inicio", id = UrlParameter.Optional } // Parameter defaults
+				"Individual resource action",
+				"{controller}/{id}/{action}",
+				new { action = "Inicio" },
+				new
+				{
+					httpMethod = new HttpMethodConstraint("GET"), // only allow GET for custom actions
+					id = @"\d+" // id must be numeric
+				}
+			);
+
+			routes.MapRoute(
+				"Individual resource",
+				"{controller}/{id}",
+				new { action = "Inicio" },
+				new { id = @"\d+" } // id must be numeric
+			);
+
+			routes.MapRoute(
+				"Resource collection action",
+				"{controller}/{action}",
+				new { action = "Inicio" },
+				new { httpMethod = new HttpMethodConstraint("GET") } // only allow GET for custom actions
+			);
+
+			routes.MapRoute(
+				"Resource collection",
+				"{controller}",
+				new { action = "Inicio" }
+			);
+
+			routes.MapRoute(
+				"Default",
+				"",
+				new { controller = "Usuario", action = "Inicio" },
+				new { httpMethod = new HttpMethodConstraint("GET") }  // only allow GET for default
 			);
 		}
 

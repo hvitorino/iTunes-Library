@@ -51,7 +51,7 @@
     <Compile Include="Comunicacao\ConversorDeEnumeracoes.cs" />
     <Compile Include="Comunicacao\ExtjsModelBinder.cs" />
     <Compile Include="Comunicacao\Resposta.cs" />
-    <Compile Include="Controllers\ListaController.cs" />
+    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\MusicaController.cs" />
     <Compile Include="Controllers\RecursoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Mvc\RESTfulControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,7 +118,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Usuario\Biblioteca.cshtml" />
+    <Content Include="Views\Usuario\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Musica\Inicio.cshtml" />

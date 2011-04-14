@@ -10,50 +10,25 @@ using iTunesLibrary.Domain;
 namespace iTunesLibrary.Web.Controllers
 {
 	[ActAsRestfulie]
+	[HandleError]
 	public class UsuarioController : RecursoController<Usuario>
 	{
 		private Usuario usuario = new Usuario
 		{
 			Id = Guid.NewGuid(),
-			Nome = "hvitorino",
-			Biblioteca = new Biblioteca
-			{
-				new Musica 
-				{
-					Nome = "Fire",
-					Artista = "Jimi Hendrix"
-				},
-				new Musica 
-				{
-					Nome = "Hey Joe",
-					Artista = "Jimi Hendrix"
-				},
-				new Musica 
-				{
-					Nome = "All Along The Watchtower",
-					Artista = "Jimi Hendrix"
-				},
-				new Musica 
-				{
-					Nome = "Iron Maiden",
-					Artista = "Iron Maiden"
-				},
-				new Musica 
-				{
-					Nome = "Hallowed Be Thy Name",
-					Artista = "Iron Maiden"
-				}
-			}
+			Nome = "hvitorino"
 		};
 
 		//
 		// GET: /login-usuario/musicas/
 
-		public ActionResult Biblioteca(string idUsuario)
+		public override ActionResult Inicio()
 		{
-			ViewData[ "Biblioteca" ] = usuario.Biblioteca;
-
-			return new OK();
+			return new OK(new Models.Usuario
+			{
+				Id = usuario.Id,
+				Nome = usuario.Nome
+			});
 		}
 	}
 }

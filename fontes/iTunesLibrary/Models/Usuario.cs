@@ -13,8 +13,12 @@ namespace iTunesLibrary.Web.Models
 
 		public void SetRelations(Relations relations)
 		{
-			relations.Named("this")
+			relations.Named("self")
 				.Uses<UsuarioController>()
+				.Inicio();
+
+			relations.Named("musicas")
+				.Uses<MusicaController>()
 				.Inicio();
 		}
 	}
