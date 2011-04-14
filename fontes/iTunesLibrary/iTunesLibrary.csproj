@@ -110,7 +110,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Musica\Exibe.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iTunesLibrary.Domain\iTunesLibrary.Domain.csproj">
       <Project>{BE8334EE-70E9-486C-8299-C6E4D4A6309A}</Project>
@@ -121,7 +123,7 @@
     <Content Include="Views\Usuario\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Musica\Inicio.cshtml" />
+    <Content Include="Views\Musica\Lista.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

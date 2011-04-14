@@ -15,7 +15,7 @@ namespace iTunesLibrary.Web.Controllers
 	{
 		private Usuario usuario = new Usuario
 		{
-			Id = Guid.NewGuid(),
+			Id = 1,
 			Nome = "hvitorino"
 		};
 

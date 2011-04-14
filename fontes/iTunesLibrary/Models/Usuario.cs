@@ -8,7 +8,7 @@ namespace iTunesLibrary.Web.Models
 {
 	public class Usuario : IBehaveAsResource
 	{
-		public Guid Id { get; set; }
+		public int Id { get; set; }
 		public string Nome { get; set; }
 
 		public void SetRelations(Relations relations)
@@ -19,7 +19,7 @@ namespace iTunesLibrary.Web.Models
 
 			relations.Named("musicas")
 				.Uses<MusicaController>()
-				.Inicio();
+				.Lista();
 		}
 	}
 }

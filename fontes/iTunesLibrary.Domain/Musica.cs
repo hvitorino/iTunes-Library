@@ -16,6 +16,7 @@ namespace iTunesLibrary.Domain
 		public int Id { get; set; }
 		public string Nome { get; set; }
 		public string Artista { get; set; }
+		public Usuario PublicadoPor { get; set; }
 
 		public Musica ComNome( string nome )
 		{

@@ -5,15 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-//using Newtonsoft.Json;
-
 using Restfulie.Server.Configuration;
 using Restfulie.Server.MediaTypes;
-
 using Restfulie.Server.Unmarshalling.Deserializers.Xml;
 using Restfulie.Server.Marshalling.Serializers.XmlAndHypermedia;
 using Restfulie.Server.Unmarshalling.Deserializers.Json;
 using Restfulie.Server.Marshalling.Serializers.Json;
+
+using iTunesLibrary.Web.Mvc;
+using iTunesLibrary.Web.Comunicacao;
 
 namespace iTunesLibrary
 {
@@ -29,6 +29,7 @@ namespace iTunesLibrary
 
 		public static void RegisterRoutes(RouteCollection routes)
 		{
+			routes.IgnoreRoute("favicon.ico");
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
@@ -65,7 +66,7 @@ namespace iTunesLibrary
 			routes.MapRoute(
 				"Default",
 				"",
-				new { controller = "Usuario", action = "Inicio" },
+				new { controller = "Musica", action = "Inicio" },
 				new { httpMethod = new HttpMethodConstraint("GET") }  // only allow GET for default
 			);
 		}
@@ -73,6 +74,9 @@ namespace iTunesLibrary
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
+
+			ControllerBuilder.Current.SetControllerFactory(new RESTfulControllerFactory());
+			ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);

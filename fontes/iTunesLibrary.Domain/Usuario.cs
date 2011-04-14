@@ -7,12 +7,12 @@ namespace iTunesLibrary.Domain
 {
 	public class Usuario : iTunesLibrary.Domain.IUsuario
 	{
-		public Guid Id { get; set; }
+		public int Id { get; set; }
 		public string Nome { get; set; }
 		public Biblioteca Biblioteca { get; set; }
 		public Musica UltimaMusicaAdicionada { get; set; }
 
-		public static Usuario novoUsuario(Guid idUsuario)
+		public static Usuario novoUsuario(int idUsuario)
 		{
 			return new Usuario { Id = idUsuario };
 		}
