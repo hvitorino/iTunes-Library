@@ -96,9 +96,6 @@ namespace iTunesLibrary
 		{
 			AreaRegistration.RegisterAllAreas();
 
-			//ControllerBuilder.Current.SetControllerFactory(new RESTfulControllerFactory());
-			//ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
-
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 		}
