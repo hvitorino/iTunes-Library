@@ -33,41 +33,62 @@ namespace iTunesLibrary
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
-				"Individual resource action",
-				"{controller}/{id}/{action}",
-				new { action = "Inicio" },
+				"Lista",
+				"{controller}/",
+				new { action = "Lista" },
 				new
 				{
-					httpMethod = new HttpMethodConstraint("GET"), // only allow GET for custom actions
-					id = @"\d+" // id must be numeric
+					httpMethod = new HttpMethodConstraint("GET")
 				}
 			);
 
 			routes.MapRoute(
-				"Individual resource",
+				"Exibe",
 				"{controller}/{id}",
-				new { action = "Inicio" },
-				new { id = @"\d+" } // id must be numeric
+				new { action = "Exibe" },
+				new
+				{
+					id = @"\d+"
+				}
 			);
 
 			routes.MapRoute(
-				"Resource collection action",
-				"{controller}/{action}",
-				new { action = "Inicio" },
-				new { httpMethod = new HttpMethodConstraint("GET") } // only allow GET for custom actions
+				"Inclui",
+				"{controller}/",
+				new { action = "Inclui" },
+				new
+				{
+					httpMethod = new HttpMethodConstraint("POST")
+				}
 			);
 
 			routes.MapRoute(
-				"Resource collection",
-				"{controller}",
-				new { action = "Inicio" }
+				"Exclui",
+				"{controller}/{id}",
+				new { action = "Exclui" },
+				new
+				{
+					id = @"\d+",
+					httpMethod = new HttpMethodConstraint("DELETE")
+				}
+			);
+
+			routes.MapRoute(
+				"Altera",
+				"{controller}/{id}",
+				new { action = "Altera" },
+				new
+				{
+					id = @"\d+",
+					httpMethod = new HttpMethodConstraint("PUT")
+				}
 			);
 
 			routes.MapRoute(
 				"Default",
 				"",
 				new { controller = "Musica", action = "Inicio" },
-				new { httpMethod = new HttpMethodConstraint("GET") }  // only allow GET for default
+				new { httpMethod = new HttpMethodConstraint("GET") }
 			);
 		}
 
@@ -75,8 +96,8 @@ namespace iTunesLibrary
 		{
 			AreaRegistration.RegisterAllAreas();
 
-			ControllerBuilder.Current.SetControllerFactory(new RESTfulControllerFactory());
-			ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
+			//ControllerBuilder.Current.SetControllerFactory(new RESTfulControllerFactory());
+			//ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
