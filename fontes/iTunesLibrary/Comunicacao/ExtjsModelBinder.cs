@@ -26,7 +26,7 @@ namespace iTunesLibrary.Web.Comunicacao
 
 		public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
 		{
-			if (!IsJSONRequest(controllerContext))
+			if (!EhRequisicaoJson(controllerContext))
 			{
 				return base.BindModel(controllerContext, bindingContext);
 			}
@@ -51,7 +51,7 @@ namespace iTunesLibrary.Web.Comunicacao
 			return RemoverRoot(dados);
 		}
 
-		private bool IsJSONRequest(ControllerContext controllerContext)
+		private bool EhRequisicaoJson(ControllerContext controllerContext)
 		{
 			var contentType = controllerContext.HttpContext.Request.ContentType;
 

@@ -47,7 +47,8 @@ namespace iTunesLibrary
 				new { action = "Exibe" },
 				new
 				{
-					id = @"\d+"
+					id = @"\d+",
+					httpMethod = new HttpMethodConstraint("GET")
 				}
 			);
 
@@ -83,12 +84,11 @@ namespace iTunesLibrary
 				}
 			);
 
-			//routes.MapRoute(
-			//    "Default",
-			//    "{controller}",
-			//    new { controller = "Musica", action = "Inicio" },
-			//    new { httpMethod = new HttpMethodConstraint("GET") }
-			//);
+			routes.MapRoute(
+				"Default", // Route name
+				"{controller}/{action}/{id}", // URL with parameters
+				new { controller = "Musica", action = "Lista", id = UrlParameter.Optional } // Parameter defaults
+			);
 		}
 
 		protected void Application_Start()
@@ -97,6 +97,8 @@ namespace iTunesLibrary
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
+
+			//ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
 		}
 	}
 }
