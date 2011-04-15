@@ -60,7 +60,6 @@
     </Compile>
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Mvc\RESTfulControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

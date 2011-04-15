@@ -12,7 +12,6 @@ using Restfulie.Server.Marshalling.Serializers.XmlAndHypermedia;
 using Restfulie.Server.Unmarshalling.Deserializers.Json;
 using Restfulie.Server.Marshalling.Serializers.Json;
 
-using iTunesLibrary.Web.Mvc;
 using iTunesLibrary.Web.Comunicacao;
 
 namespace iTunesLibrary
@@ -35,7 +34,7 @@ namespace iTunesLibrary
 			routes.MapRoute(
 				"Lista",
 				"{controller}/",
-				new { action = "Lista" },
+				new { controller = "Musica", action = "Lista" },
 				new
 				{
 					httpMethod = new HttpMethodConstraint("GET")
@@ -84,12 +83,12 @@ namespace iTunesLibrary
 				}
 			);
 
-			routes.MapRoute(
-				"Default",
-				"",
-				new { controller = "Musica", action = "Inicio" },
-				new { httpMethod = new HttpMethodConstraint("GET") }
-			);
+			//routes.MapRoute(
+			//    "Default",
+			//    "{controller}",
+			//    new { controller = "Musica", action = "Inicio" },
+			//    new { httpMethod = new HttpMethodConstraint("GET") }
+			//);
 		}
 
 		protected void Application_Start()
