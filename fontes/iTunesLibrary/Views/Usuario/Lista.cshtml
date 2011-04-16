@@ -1,0 +1,19 @@
+﻿@using iTunesLibrary.Web.Models;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{<a href="../Shared/_Layout.cshtml"></a>
+    ViewBag.Title = "Usuários";
+}
+
+<h2>Usuários</h2>
+
+<ul>
+@foreach (var usuario in Model as IEnumerable<Usuario>)
+{ 
+    <li>@usuario.Nome</li>
+}
+</ul>
+

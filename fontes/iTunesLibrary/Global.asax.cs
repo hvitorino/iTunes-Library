@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
-
-using Restfulie.Server.Configuration;
-using Restfulie.Server.MediaTypes;
-using Restfulie.Server.Unmarshalling.Deserializers.Xml;
-using Restfulie.Server.Marshalling.Serializers.XmlAndHypermedia;
-using Restfulie.Server.Unmarshalling.Deserializers.Json;
-using Restfulie.Server.Marshalling.Serializers.Json;
-
-using iTunesLibrary.Web.Comunicacao;
 
 namespace iTunesLibrary
 {
@@ -97,8 +84,6 @@ namespace iTunesLibrary
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
-
-			//ModelBinders.Binders.DefaultBinder = new ExtjsModelBinder();
 		}
 	}
 }

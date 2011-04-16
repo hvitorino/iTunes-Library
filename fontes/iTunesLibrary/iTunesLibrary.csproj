@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\dependencias\bin\automapper\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\dependencias\bin\json\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -51,13 +54,13 @@
     <Compile Include="Comunicacao\ConversorDeEnumeracoes.cs" />
     <Compile Include="Comunicacao\ExtjsModelBinder.cs" />
     <Compile Include="Comunicacao\Resposta.cs" />
-    <Compile Include="Controllers\CrudController.cs" />
+    <Compile Include="Controllers\RestfulController.cs" />
     <Compile Include="Controllers\MusicaController.cs" />
-    <Compile Include="Controllers\RecursoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapas\RegistroDeMapas.cs" />
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,11 +122,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Usuario\Inicio.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Musica\Lista.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Lista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Exibe.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

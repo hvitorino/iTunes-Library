@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 
@@ -12,7 +11,7 @@ namespace iTunesLibrary.Web.Controllers
 {
 	[ActAsRestfulie]
 	[HandleError]
-	public class MusicaController : CrudController<Musica>
+	public class MusicaController : RestfulController<Musica>
 	{
 		private static Usuario usuario;
 

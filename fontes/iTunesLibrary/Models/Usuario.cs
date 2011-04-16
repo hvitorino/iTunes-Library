@@ -1,6 +1,4 @@
-﻿using System;
-
-using Restfulie.Server;
+﻿using Restfulie.Server;
 
 using iTunesLibrary.Web.Controllers;
 
@@ -15,7 +13,7 @@ namespace iTunesLibrary.Web.Models
 		{
 			relations.Named("self")
 				.Uses<UsuarioController>()
-				.Inicio();
+				.Exibe(Id);
 
 			relations.Named("musicas")
 				.Uses<MusicaController>()

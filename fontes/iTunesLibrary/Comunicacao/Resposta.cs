@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace iTunesLibrary.Web.Comunicacao
+﻿namespace iTunesLibrary.Web.Comunicacao
 {
     public class Resposta
     {
