@@ -37,6 +37,13 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\dependencias\bin\automapper\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dependencias\bin\castlewindsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\dependencias\bin\castlewindsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\dependencias\bin\json\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,6 +70,8 @@
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Mvc\ExtjsModelBinder.cs" />
+    <Compile Include="Mvc\WindsorControllerFactory.cs" />
+    <Compile Include="Mvc\WindsorControllersInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

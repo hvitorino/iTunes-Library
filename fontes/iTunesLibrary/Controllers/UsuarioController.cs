@@ -42,31 +42,6 @@ namespace iTunesLibrary.Web.Controllers
 			return new OK(lista);
 		}
 
-		//[HttpPost]
-		//public override ActionResult Inclui(Models.Usuario usuario)
-		//{
-		//    usuario.Id = usuarios.Max(usr => usr.Id) + 1;
-
-		//    usuarios.Add(usuario);
-
-		//    return new Created(usuario);
-		//}
-
-		//[HttpPut]
-		//public override ActionResult Altera(Models.Usuario usuario)
-		//{
-		//    //if (usuario == null)
-		//    //    return new NotFound();
-
-		//    //if (usuario.Id <= 0)
-		//    //    return new BadRequest();
-
-		//    //var usuarioAlterado = usuarios.Where(usr => usr.Id == usuario.Id).SingleOrDefault();
-			
-		//    //Mapper.CreateMap<Mode
-		//    return new OK();
-		//}
-
 		[HttpDelete]
 		public override ActionResult Exclui(int id)
 		{
