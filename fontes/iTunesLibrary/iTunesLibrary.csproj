@@ -63,6 +63,7 @@
     <Compile Include="Mapas\RegistroDeMapas.cs" />
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Mvc\ExtjsModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

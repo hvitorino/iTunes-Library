@@ -35,7 +35,7 @@ namespace iTunesLibrary.Web.Comunicacao
 			var config = new JsonSerializerSettings();
 			var reader = new StringReader(jsonData);
 
-			config.Converters.Add(new ConversorDeDatas());
+			//config.Converters.Add(new ConversorDeDatas());
 			config.Converters.Add(new ConversorDeEnumeracoes());
 
 			var serializador = JsonSerializer.Create(config);
