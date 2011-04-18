@@ -35,9 +35,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Biblioteca.cs" />
     <Compile Include="IRepositorio.cs" />
-    <Compile Include="Lista.cs" />
     <Compile Include="Musica.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
