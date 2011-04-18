@@ -4,6 +4,8 @@ namespace iTunesLibrary.Web.Controllers
 {
 	public abstract class RestfulController<TRecurso> : Controller
 	{
+		//protected ICadastro<TRecurso> cadastro;
+
 		/// <summary>
 		/// Cria um novo recurso. Ex:
 		///  (1) Cadastro de empregado

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary.Domain", "iTu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary.Domain.Tests", "iTunesLibrary.Domain.Tests\iTunesLibrary.Domain.Tests.csproj", "{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTunesLibrary.Infra.Persistencia", "iTunesLibrary.Infra.Persistencia\iTunesLibrary.Infra.Persistencia.csproj", "{81AB5BDB-86F5-4938-896A-461308C4EAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E07BD3AA-AB09-4A25-B90D-9C4B2B9AA8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AB5BDB-86F5-4938-896A-461308C4EAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AB5BDB-86F5-4938-896A-461308C4EAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AB5BDB-86F5-4938-896A-461308C4EAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AB5BDB-86F5-4938-896A-461308C4EAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

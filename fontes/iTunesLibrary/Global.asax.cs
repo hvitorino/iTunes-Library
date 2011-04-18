@@ -1,6 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
+using Castle.Windsor;
+using Castle.Windsor.Installer;
+
 namespace iTunesLibrary
 {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -8,6 +11,8 @@ namespace iTunesLibrary
 
 	public class MvcApplication : System.Web.HttpApplication
 	{
+		private static WindsorContainer container;
+
 		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 			filters.Add(new HandleErrorAttribute());
@@ -78,12 +83,28 @@ namespace iTunesLibrary
 			);
 		}
 
+		private static void BootstrapContainer()
+		{
+			container = new WindsorContainer();
+			container.Install(FromAssembly.This());
+
+			var controllerFactory = new WindsorControllerFactory(container.Kernel);
+			ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+		}
+
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
 
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
+
+			BootstrapContainer();
+		}
+
+		protected void Application_End()
+		{
+			container.Dispose();
 		}
 	}
 }

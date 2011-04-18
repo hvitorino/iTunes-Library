@@ -1,0 +1,10 @@
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\iTunesLibrary.Infra.Persistencia.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\iTunesLibrary.Infra.Persistencia.pdb
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\Iesi.Collections.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\iTunesLibrary.Domain.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\NHibernate.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\bin\Debug\iTunesLibrary.Domain.pdb
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\obj\Debug\ResolveAssemblyReference.cache
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\obj\Debug\iTunesLibrary.Infra.Persistencia.dll
+D:\Git\ituneslibrary\fontes\iTunesLibrary.Infra.Persistencia\obj\Debug\iTunesLibrary.Infra.Persistencia.pdb
