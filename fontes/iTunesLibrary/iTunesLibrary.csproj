@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Comunicacao\ConversorDeDatas.cs" />
     <Compile Include="Comunicacao\ConversorDeEnumeracoes.cs" />
-    <Compile Include="Comunicacao\ExtjsModelBinder.cs" />
     <Compile Include="Comunicacao\Resposta.cs" />
     <Compile Include="Controllers\RestfulController.cs" />
     <Compile Include="Controllers\MusicaController.cs" />
