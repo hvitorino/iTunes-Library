@@ -86,7 +86,13 @@ namespace iTunesLibrary
 		private static void BootstrapContainer()
 		{
 			container = new WindsorContainer();
-			container.Install(FromAssembly.This());
+
+			var install = FromAssembly.This();
+
+			container.Install(
+				FromAssembly.This(),
+				FromAssembly.Containing<iTunesLibrary.Domain.Musica>()
+			);
 
 			var controllerFactory = new WindsorControllerFactory(container.Kernel);
 			ControllerBuilder.Current.SetControllerFactory(controllerFactory);

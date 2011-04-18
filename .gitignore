@@ -5,3 +5,5 @@
 /fontes/iTunesLibrary/obj
 /fontes/iTunesLibrary.Domain/obj
 /fontes/iTunesLibrary.Domain.Tests/obj
+/fontes/iTunesLibrary.Infra.Persistencia/obj
+/fontes/iTunesLibrary.Infra.Persistencia/bin

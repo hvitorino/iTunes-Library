@@ -1,10 +1,12 @@
 ﻿using System.Web.Mvc;
 
+using iTunesLibrary.Domain;
+
 namespace iTunesLibrary.Web.Controllers
 {
 	public abstract class RestfulController<TRecurso> : Controller
 	{
-		//protected ICadastro<TRecurso> cadastro;
+		protected IRepositorio<TRecurso> repositorio;
 
 		/// <summary>
 		/// Cria um novo recurso. Ex:
