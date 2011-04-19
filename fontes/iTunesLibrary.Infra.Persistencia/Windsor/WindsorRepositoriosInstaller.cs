@@ -10,7 +10,7 @@ using Castle.MicroKernel.Registration;
 
 using iTunesLibrary.Domain;
 
-namespace iTunesLibrary.Web.Windsor
+namespace iTunesLibrary.Infra.Persistencia.Windsor
 {
 	public class WindsorRepositoriosInstaller : IWindsorInstaller
 	{
@@ -26,9 +26,8 @@ namespace iTunesLibrary.Web.Windsor
 
 		private BasedOnDescriptor FindRepositorios()
 		{
-			return AllTypes.FromAssemblyContaining<Musica>()
-				.BasedOn<IRepositorio<Musica>>()
-				.BasedOn<IRepositorio<Usuario>>();
+			return AllTypes.FromThisAssembly()
+				.BasedOn(typeof(IRepositorio<>)).WithService.Base();
 		}
 	}
 }

@@ -9,6 +9,7 @@ using Restfulie.Server;
 using Restfulie.Server.Results;
 
 using iTunesLibrary.Domain;
+using iTunesLibrary.Web.Mapas;
 
 namespace iTunesLibrary.Web.Controllers
 {
@@ -16,67 +17,54 @@ namespace iTunesLibrary.Web.Controllers
 	[HandleError]
 	public class UsuarioController : RestfulController<Usuario>
 	{
-		private List<Usuario> usuarios = new List<Usuario>
+		public UsuarioController()
+		{ 
+		}
+
+		public UsuarioController(IRepositorio<Usuario> repositorio)
 		{
-			new Usuario
-			{
-				Id = 1,
-				Nome = "hvitorino"
-			}
-		};
+			this.repositorio = repositorio;
+		}
 
-		[HttpGet]
-		public override ActionResult Lista()
+		[HttpPost]
+		public override ActionResult Inclui(Usuario usuario)
 		{
-			var lista = new List<Models.Usuario>();
+			var novo = repositorio.Salva(usuario);
 
-			usuarios.ForEach(
-				usr =>
-					lista.Add(new Models.Usuario
-					{
-						Id = usr.Id,
-						Nome = usr.Nome
-					})
-			);
+			return new Created(novo.ConverteParaModel());
+		}
 
-			return new OK(lista);
+		[HttpPut]
+		public override ActionResult Altera(Usuario usuario)
+		{
+			var alterado = repositorio.Altera(usuario);
+
+			return new OK(alterado.ConverteParaModel());
 		}
 
 		[HttpDelete]
 		public override ActionResult Exclui(int id)
 		{
-			throw new System.NotImplementedException();
+			var excluida = repositorio.Exclui(id);
+
+			return new OK(excluida.ConverteParaModel());
+		}
+
+		[HttpGet]
+		public override ActionResult Lista()
+		{
+			return new OK(repositorio.Lista().ConverteParaModel());
 		}
 
 		[HttpGet]
 		public override ActionResult Exibe(int id)
 		{
-			var usuarioExibido = usuarios.Where(usr => usr.Id == id).SingleOrDefault();
+			var usuarioRecuperado = repositorio.Carrega(id);
 
-			if (usuarioExibido != null)
-			{
-				var usuario = new Models.Usuario
-				{
-					Id = usuarioExibido.Id,
-					Nome = usuarioExibido.Nome
-				};
-
-				return new OK(usuario);
-			}
-			else 
-			{
+			if (usuarioRecuperado != null)
+				return new OK(usuarioRecuperado.ConverteParaModel());
+			else
 				return new NotFound();
-			}
-		}
-
-		public override ActionResult Inclui(Usuario recurso)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public override ActionResult Altera(Usuario recurso)
-		{
-			throw new System.NotImplementedException();
 		}
 	}
 }

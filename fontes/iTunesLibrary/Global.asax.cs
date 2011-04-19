@@ -4,6 +4,9 @@ using System.Web.Routing;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 
+using iTunesLibrary.Web.Windsor;
+using iTunesLibrary.Infra.Persistencia.Windsor;
+
 namespace iTunesLibrary
 {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -90,8 +93,8 @@ namespace iTunesLibrary
 			var install = FromAssembly.This();
 
 			container.Install(
-				FromAssembly.This(),
-				FromAssembly.Containing<iTunesLibrary.Domain.Musica>()
+				new WindsorRepositoriosInstaller(),
+				new WindsorControllersInstaller()
 			);
 
 			var controllerFactory = new WindsorControllerFactory(container.Kernel);

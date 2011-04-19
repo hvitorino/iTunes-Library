@@ -66,14 +66,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mapas\RegistroDeMapas.cs" />
+    <Compile Include="Mapas\MapaUsuarioExtensions.cs" />
+    <Compile Include="Mapas\MapaMusicaExtensions.cs" />
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Mvc\ExtjsModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Windsor\WindsorControllersInstaller.cs" />
-    <Compile Include="Windsor\WindsorRepositoriosInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -129,6 +129,10 @@
     <ProjectReference Include="..\iTunesLibrary.Domain\iTunesLibrary.Domain.csproj">
       <Project>{BE8334EE-70E9-486C-8299-C6E4D4A6309A}</Project>
       <Name>iTunesLibrary.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTunesLibrary.Infra.Persistencia\iTunesLibrary.Infra.Persistencia.csproj">
+      <Project>{81AB5BDB-86F5-4938-896A-461308C4EAC6}</Project>
+      <Name>iTunesLibrary.Infra.Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

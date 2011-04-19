@@ -7,7 +7,7 @@ using iTunesLibrary.Domain;
 
 namespace iTunesLibrary.Infra.Persistencia
 {
-	public class UsuarioRepositorio
+	public class UsuarioRepositorio : IRepositorio<Usuario>
 	{
 		private static int contador = 1;
 		private static List<Usuario> cadastro = new List<Usuario>();

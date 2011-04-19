@@ -7,7 +7,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using iTunesLibrary.Web;
 using iTunesLibrary.Web.Controllers;
 
-namespace iTunesLibrary.Web.Mvc
+namespace iTunesLibrary.Web.Windsor
 {
 	public class WindsorControllersInstaller : IWindsorInstaller
 	{
@@ -24,9 +24,7 @@ namespace iTunesLibrary.Web.Mvc
 		private BasedOnDescriptor FindControllers()
 		{
 			return AllTypes.FromThisAssembly()
-				.BasedOn<Controller>()
-				.If(Component.IsInSameNamespaceAs<MusicaController>())
-				.If(t => t.Name.EndsWith("Controller"));
+				.BasedOn<Controller>();
 		}
 	}
 }

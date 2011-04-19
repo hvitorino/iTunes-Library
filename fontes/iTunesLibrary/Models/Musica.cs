@@ -9,7 +9,7 @@ namespace iTunesLibrary.Web.Models
 		public int Id { get; set; }
 		public string Nome { get; set; }
 		public string Artista { get; set; }
-		public Usuario PublicadoPor { get; set; }
+		//public Usuario PublicadoPor { get; set; }
 
 		public void SetRelations(Relations relations)
 		{
@@ -17,9 +17,9 @@ namespace iTunesLibrary.Web.Models
 				.Uses<MusicaController>()
 				.Exibe(Id);
 
-			relations.Named("usuario")
-				.Uses<UsuarioController>()
-				.Exibe(PublicadoPor.Id);
+			//relations.Named("usuario")
+			//    .Uses<UsuarioController>()
+			//    .Exibe(PublicadoPor.Id);
 		}
 	}
 }

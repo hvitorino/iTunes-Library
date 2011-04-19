@@ -6,6 +6,7 @@ using Restfulie.Server;
 using Restfulie.Server.Results;
 
 using iTunesLibrary.Domain;
+using iTunesLibrary.Web.Mapas;
 
 namespace iTunesLibrary.Web.Controllers
 {
@@ -13,6 +14,10 @@ namespace iTunesLibrary.Web.Controllers
 	[HandleError]
 	public class MusicaController : RestfulController<Musica>
 	{
+		public MusicaController()
+		{ 
+		}
+
 		public MusicaController(IRepositorio<Musica> repositorio)
 		{
 			this.repositorio = repositorio;
@@ -23,15 +28,15 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var nova = repositorio.Salva(musica);
 
-			return new Created(nova);
+			return new Created(nova.ConverteParaModel());
 		}
 
 		[HttpPut]
 		public override ActionResult Altera(Musica musica)
 		{
-			var alterada = repositorio.Altera(musica);
+			var alterada = repositorio.Carrega(musica.Id);
 
-			return new OK(alterada);
+			return new OK(alterada.ConverteParaModel());
 		}
 
 		[HttpDelete]
@@ -39,13 +44,13 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var excluida = repositorio.Exclui(id);
 
-			return new OK(excluida);
+			return new OK(excluida.ConverteParaModel());
 		}
 
 		[HttpGet]
 		public override ActionResult Lista()
 		{
-			return new OK(repositorio.Lista());
+			return new OK(repositorio.Lista().ConverteParaModel());
 		}
 
 		[HttpGet]
@@ -54,7 +59,7 @@ namespace iTunesLibrary.Web.Controllers
 			var musicaRecuperada = repositorio.Carrega(id);
 
 			if (musicaRecuperada != null)
-				return new OK(musicaRecuperada);
+				return new OK(musicaRecuperada.ConverteParaModel());
 			else
 				return new NotFound();
 		}

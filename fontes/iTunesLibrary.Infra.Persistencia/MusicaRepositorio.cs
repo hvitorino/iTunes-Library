@@ -9,8 +9,8 @@ namespace iTunesLibrary.Infra.Persistencia
 {
 	public class MusicaRepositorio : IRepositorio<Musica>
 	{
-		private static int contador = 1;
-		private static List<Musica> biblioteca = new List<Musica>();
+		private int contador = 1;
+		private List<Musica> biblioteca = new List<Musica>();
 
 		public long Total
 		{
@@ -30,7 +30,7 @@ namespace iTunesLibrary.Infra.Persistencia
 		public Musica Carrega(long id)
 		{
 			return biblioteca
-					.Where(m => m.Id.Equals(id))
+					.Where(m => m.Id == id)
 					.SingleOrDefault();
 		}
 

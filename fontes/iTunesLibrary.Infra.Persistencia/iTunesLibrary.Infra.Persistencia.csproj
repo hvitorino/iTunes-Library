@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dependencias\bin\castlewindsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\dependencias\bin\castlewindsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\dependencias\bin\nhibernate\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -56,6 +63,7 @@
     <Compile Include="MusicaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
+    <Compile Include="Windsor\WindsorRepositoriosInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iTunesLibrary.Domain\iTunesLibrary.Domain.csproj">
