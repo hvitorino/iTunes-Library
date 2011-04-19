@@ -60,7 +60,10 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var excluida = repositorio.Exclui(id);
 
-			return new OK(Mapper.Map<Usuario, Models.Usuario>(excluida));
+			if (excluida != null)
+				return new OK(Mapper.Map<Usuario, Models.Usuario>(excluida));
+			else
+				return new NotFound();
 		}
 
 		[HttpGet]
