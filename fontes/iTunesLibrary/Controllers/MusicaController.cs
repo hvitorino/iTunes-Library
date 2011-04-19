@@ -5,8 +5,9 @@ using System.Linq;
 using Restfulie.Server;
 using Restfulie.Server.Results;
 
+using AutoMapper;
+
 using iTunesLibrary.Domain;
-using iTunesLibrary.Web.Mapas;
 
 namespace iTunesLibrary.Web.Controllers
 {
@@ -15,10 +16,15 @@ namespace iTunesLibrary.Web.Controllers
 	public class MusicaController : RestfulController<Musica>
 	{
 		public MusicaController()
-		{ 
+		{
+			Mapper.CreateMap<Musica, Models.Musica>();
+			Mapper.CreateMap<Models.Musica, Musica>();
+
+			Mapper.CreateMap<Musica, Musica>()
+				.ForAllMembers(m => m.Condition(c => !c.IsSourceValueNull));
 		}
 
-		public MusicaController(IRepositorio<Musica> repositorio)
+		public MusicaController(IRepositorio<Musica> repositorio) : this()
 		{
 			this.repositorio = repositorio;
 		}
@@ -28,7 +34,7 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var nova = repositorio.Salva(musica);
 
-			return new Created(nova.ConverteParaModel());
+			return new Created(Mapper.Map<Musica, Models.Musica>(nova));
 		}
 
 		[HttpPut]
@@ -36,7 +42,16 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var alterada = repositorio.Carrega(musica.Id);
 
-			return new OK(alterada.ConverteParaModel());
+			if (alterada != null)
+			{
+				Mapper.Map<Musica, Musica>(musica, alterada);
+
+				return new OK(Mapper.Map<Musica, Models.Musica>(alterada));
+			}
+			else
+			{
+				return new NotFound();
+			}
 		}
 
 		[HttpDelete]
@@ -44,13 +59,18 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var excluida = repositorio.Exclui(id);
 
-			return new OK(excluida.ConverteParaModel());
+			return new OK(Mapper.Map<Musica, Models.Musica>(excluida));
 		}
 
 		[HttpGet]
 		public override ActionResult Lista()
 		{
-			return new OK(repositorio.Lista().ConverteParaModel());
+			var listaModels = new List<Models.Musica>();
+
+			foreach (var musica in repositorio.Lista())
+				listaModels.Add(Mapper.Map<Musica, Models.Musica>(musica));
+
+			return new OK(listaModels);
 		}
 
 		[HttpGet]
@@ -59,7 +79,7 @@ namespace iTunesLibrary.Web.Controllers
 			var musicaRecuperada = repositorio.Carrega(id);
 
 			if (musicaRecuperada != null)
-				return new OK(musicaRecuperada.ConverteParaModel());
+				return new OK(Mapper.Map<Musica, Models.Musica>(musicaRecuperada));
 			else
 				return new NotFound();
 		}

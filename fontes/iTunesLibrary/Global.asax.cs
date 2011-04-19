@@ -89,9 +89,6 @@ namespace iTunesLibrary
 		private static void BootstrapContainer()
 		{
 			container = new WindsorContainer();
-
-			var install = FromAssembly.This();
-
 			container.Install(
 				new WindsorRepositoriosInstaller(),
 				new WindsorControllersInstaller()

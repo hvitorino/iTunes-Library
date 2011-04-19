@@ -9,7 +9,6 @@ using Restfulie.Server;
 using Restfulie.Server.Results;
 
 using iTunesLibrary.Domain;
-using iTunesLibrary.Web.Mapas;
 
 namespace iTunesLibrary.Web.Controllers
 {
@@ -18,10 +17,15 @@ namespace iTunesLibrary.Web.Controllers
 	public class UsuarioController : RestfulController<Usuario>
 	{
 		public UsuarioController()
-		{ 
+		{
+			Mapper.CreateMap<Usuario, Models.Usuario>();
+			Mapper.CreateMap<Models.Usuario, Usuario>();
+
+			Mapper.CreateMap<Usuario, Usuario>()
+				.ForAllMembers(m => m.Condition(c => !c.IsSourceValueNull));
 		}
 
-		public UsuarioController(IRepositorio<Usuario> repositorio)
+		public UsuarioController(IRepositorio<Usuario> repositorio) : this()
 		{
 			this.repositorio = repositorio;
 		}
@@ -29,17 +33,26 @@ namespace iTunesLibrary.Web.Controllers
 		[HttpPost]
 		public override ActionResult Inclui(Usuario usuario)
 		{
-			var novo = repositorio.Salva(usuario);
+			var nova = repositorio.Salva(usuario);
 
-			return new Created(novo.ConverteParaModel());
+			return new Created(Mapper.Map<Usuario, Models.Usuario>(nova));
 		}
 
 		[HttpPut]
 		public override ActionResult Altera(Usuario usuario)
 		{
-			var alterado = repositorio.Altera(usuario);
+			var alterada = repositorio.Carrega(usuario.Id);
 
-			return new OK(alterado.ConverteParaModel());
+			if (alterada != null)
+			{
+				Mapper.Map<Usuario, Usuario>(usuario, alterada);
+
+				return new OK(Mapper.Map<Usuario, Models.Usuario>(alterada));
+			}
+			else
+			{
+				return new NotFound();
+			}
 		}
 
 		[HttpDelete]
@@ -47,22 +60,27 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var excluida = repositorio.Exclui(id);
 
-			return new OK(excluida.ConverteParaModel());
+			return new OK(Mapper.Map<Usuario, Models.Usuario>(excluida));
 		}
 
 		[HttpGet]
 		public override ActionResult Lista()
 		{
-			return new OK(repositorio.Lista().ConverteParaModel());
+			var listaModels = new List<Models.Usuario>();
+
+			foreach (var usuario in repositorio.Lista())
+				listaModels.Add(Mapper.Map<Usuario, Models.Usuario>(usuario));
+
+			return new OK(listaModels);
 		}
 
 		[HttpGet]
 		public override ActionResult Exibe(int id)
 		{
-			var usuarioRecuperado = repositorio.Carrega(id);
+			var usuarioRecuperada = repositorio.Carrega(id);
 
-			if (usuarioRecuperado != null)
-				return new OK(usuarioRecuperado.ConverteParaModel());
+			if (usuarioRecuperada != null)
+				return new OK(Mapper.Map<Usuario, Models.Usuario>(usuarioRecuperada));
 			else
 				return new NotFound();
 		}

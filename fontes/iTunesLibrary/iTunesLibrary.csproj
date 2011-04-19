@@ -66,8 +66,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mapas\MapaUsuarioExtensions.cs" />
-    <Compile Include="Mapas\MapaMusicaExtensions.cs" />
     <Compile Include="Models\Musica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Mvc\ExtjsModelBinder.cs" />
