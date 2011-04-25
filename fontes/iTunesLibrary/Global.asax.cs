@@ -86,8 +86,8 @@ namespace iTunesLibrary
 				{ 
 					controller = "Musica",
 					action = "Pesquisa",
-					indiceInicial = 0,
-					quantidade = 10,
+					indiceInicial = @"\d+",
+					quantidade = @"\d+",
 					ordem = UrlParameter.Optional
 				} // Parameter defaults
 			);
