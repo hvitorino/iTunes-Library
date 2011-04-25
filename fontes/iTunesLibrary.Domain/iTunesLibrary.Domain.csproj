@@ -31,10 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate.Validator">
+      <HintPath>..\..\dependencias\bin\nhibernatevalidator\bin\net-3.5\NHibernate.Validator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidade.cs" />
+    <Compile Include="EntidadeExtensions.cs" />
     <Compile Include="IRepositorio.cs" />
     <Compile Include="Musica.cs" />
     <Compile Include="Usuario.cs" />

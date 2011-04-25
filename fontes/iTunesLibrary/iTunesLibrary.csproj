@@ -47,8 +47,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\dependencias\bin\json\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Restfulie.Server">
-      <HintPath>..\..\dependencias\bin\restfulie\Restfulie.Server.dll</HintPath>
+    <Reference Include="NHibernate.Validator">
+      <HintPath>..\..\dependencias\bin\nhibernatevalidator\bin\net-3.5\NHibernate.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Restfulie.Server, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\restfulie\Restfulie.Server\bin\Debug\Restfulie.Server.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />

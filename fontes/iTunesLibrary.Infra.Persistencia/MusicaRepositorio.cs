@@ -9,7 +9,7 @@ namespace iTunesLibrary.Infra.Persistencia
 {
 	public class MusicaRepositorio : IRepositorio<Musica>
 	{
-		private int contador = 1;
+		private int contador = 0;
 		private List<Musica> biblioteca = new List<Musica>();
 
 		public long Total

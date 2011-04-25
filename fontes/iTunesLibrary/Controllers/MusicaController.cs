@@ -32,9 +32,16 @@ namespace iTunesLibrary.Web.Controllers
 		[HttpPost]
 		public override ActionResult Inclui(Musica musica)
 		{
-			var nova = repositorio.Salva(musica);
+			if (musica.Valido())
+			{
+				var nova = repositorio.Salva(musica);
 
-			return new Created(Mapper.Map<Musica, Models.Musica>(nova));
+				return new Created(Mapper.Map<Musica, Models.Musica>(nova));
+			}
+			else
+			{
+				return new BadRequest(musica.ItensInvalidos());
+			}
 		}
 
 		[HttpPut]
@@ -42,15 +49,22 @@ namespace iTunesLibrary.Web.Controllers
 		{
 			var alterada = repositorio.Carrega(musica.Id);
 
-			if (alterada != null)
+			if (musica.Valido())
 			{
-				Mapper.Map<Musica, Musica>(musica, alterada);
+				if (alterada != null)
+				{
+					Mapper.Map<Musica, Musica>(musica, alterada);
 
-				return new OK(Mapper.Map<Musica, Models.Musica>(alterada));
+					return new OK(Mapper.Map<Musica, Models.Musica>(alterada));
+				}
+				else
+				{
+					return new NotFound();
+				}
 			}
 			else
 			{
-				return new NotFound();
+				return new BadRequest();
 			}
 		}
 

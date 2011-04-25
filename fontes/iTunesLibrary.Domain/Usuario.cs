@@ -5,7 +5,7 @@ using System.Text;
 
 namespace iTunesLibrary.Domain
 {
-	public class Usuario
+	public class Usuario : Entidade
 	{
 		public int Id { get; set; }
 		public string Nome { get; set; }
