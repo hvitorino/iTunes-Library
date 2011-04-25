@@ -80,6 +80,19 @@ namespace iTunesLibrary
 			);
 
 			routes.MapRoute(
+				"Pesquisa", // Route name
+				"{controller}/{indiceInicial},{quantidade},{ordem}", // URL with parameters
+				new
+				{ 
+					controller = "Musica",
+					action = "Pesquisa",
+					indiceInicial = 0,
+					quantidade = 10,
+					ordem = UrlParameter.Optional
+				} // Parameter defaults
+			);
+
+			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
 				new { controller = "Musica", action = "Lista", id = UrlParameter.Optional } // Parameter defaults

@@ -91,6 +91,17 @@ namespace iTunesLibrary.Web.Controllers
 		}
 
 		[HttpGet]
+		public ActionResult Pesquisa(int indiceInicial, int quantidade, string ordem)
+		{
+			var listaModels = new List<Models.Musica>();
+
+			foreach (var musica in repositorio.Lista(indiceInicial, quantidade))
+				listaModels.Add(Mapper.Map<Musica, Models.Musica>(musica));
+
+			return new OK(listaModels);
+		}
+
+		[HttpGet]
 		public override ActionResult Exibe(int id)
 		{
 			var musicaRecuperada = repositorio.Carrega(id);
