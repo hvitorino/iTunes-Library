@@ -21,8 +21,6 @@ namespace iTunesLibrary.Domain
 		[NotNullNotEmpty(Message = "Não pode ser nulo ou vazio")]
 		public string Artista { get; set; }
 
-		public Usuario PublicadoPor { get; set; }
-
 		public Musica ComNome(string nome)
 		{
 			Nome = nome;

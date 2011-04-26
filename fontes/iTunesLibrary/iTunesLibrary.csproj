@@ -52,7 +52,7 @@
     </Reference>
     <Reference Include="Restfulie.Server, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\restfulie\Restfulie.Server\bin\Debug\Restfulie.Server.dll</HintPath>
+      <HintPath>..\..\dependencias\bin\restfulie\Restfulie.Server.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -66,12 +66,10 @@
     <Compile Include="Comunicacao\Resposta.cs" />
     <Compile Include="Controllers\RestfulController.cs" />
     <Compile Include="Controllers\MusicaController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Musica.cs" />
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Mvc\ExtjsModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windsor\WindsorControllerFactory.cs" />
