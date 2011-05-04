@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="MusicaRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioRepositorio.cs" />
     <Compile Include="Windsor\WindsorRepositoriosInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
