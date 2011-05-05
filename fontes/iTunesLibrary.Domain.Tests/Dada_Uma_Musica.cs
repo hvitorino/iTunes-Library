@@ -31,5 +31,16 @@ namespace iTunesLibrary.Domain.Tests
 
 			Assert.AreEqual("Nirvana", musica.Artista);
 		}
+
+		[TestCase]
+		public void Durante_Validacao_Se_Nao_Possuir_Nome_Deve_Ser_Invalida()
+		{
+			var musica = new Musica
+			{
+				Artista = "Jimi Hendrix"
+			};
+
+			Assert.IsFalse(musica.Valido());
+		}
 	}
 }
